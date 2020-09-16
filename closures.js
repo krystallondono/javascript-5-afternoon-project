@@ -222,19 +222,17 @@ function secretNumber() {
 */
 
 function timeOutCounter() {
-  console.log('before', i)
 
-  for (let i = 0; i <= 5; i++) {
+  for (var i = 0; i <= 5; i++) {
 
     function pauseRightHere(num){ 
       setTimeout(function() {
       console.log(num);
       }, num * 1000);
     }
-    pauseRightHere(i);
+    return pauseRightHere(i);
 
   }
 
-  console.log('after', i);
 }
 timeOutCounter();
