@@ -107,37 +107,35 @@ class ProgressiveManager extends Manager {
     this.bonus = bonus;
   }
 
-  hire (employee){
-    this.reports.push(employee);
+  hire(employee){
+  super.hire(employee);
+    if (this.reports.length >= 1 && this.reports.length <= 3){
+      return this.title = "Barely Manager";
+  
+    }
+    else if (this.reports.length >= 4 && this.reports.length <= 10){
+      return this.title = "Mostly Manager";
+  
+    }
+    else if (this.reports.length >= 11 && this.reports.length <= 50){
+      return this.title = "Manager";
+    }
+    else if (this.reports.length >= 51 && this.reports.length <= 100){
+      this.title = "Manager Plus";
+    }
+    else{ 
+      this.title = "Bestest Manager";
+    }
   }
 
-  fire (index){
-    this.reports.splice(index, 1);
+  fire(employee){
+    super.fire(employee);
+    this.bonus += 100;
   }
-
-   function (){
-     if (this.reports.length >= 1 && this.reports.length <= 3){
-        this.title = 'Barely Manager';       
-     } else if (this.reports.length >= 4 && this.reports.length <= 10){
-        this.title = 'Mostly Manager';
-     } else if (this.reports.length >= 11 && this.reports.length <= 50){
-        this.title = 'Manager';
-     } else if (this.reports.length >= 51 && this.reports.length <= 100){
-        this.title = 'Manager Plus';
-     } else if (this.reports.length >= 101){
-        this.title = 'Bestest Manager';
-     }
-
-   }
-
-   function (){
-     if (this.fire()){
-       this.bonus += 100;
-     }
-   }
+  }
    
   
-}
+
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
